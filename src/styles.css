@@ -1,0 +1,120 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+
+/* Design tokens. Tailwind utilities (bg-primary, text-muted-foreground, ...) map to these. */
+@theme inline {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-lg: 0.625rem;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-note: var(--note);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-border: var(--sidebar-border);
+
+  --shadow-panel: var(--shadow-panel);
+  --shadow-glow: var(--shadow-glow);
+}
+
+:root {
+  color-scheme: dark;
+  --background: oklch(0.17 0.012 260);
+  --foreground: oklch(0.93 0.008 260);
+  --surface: oklch(0.2 0.012 260);
+  --surface-raised: oklch(0.235 0.013 260);
+  --primary: oklch(0.69 0.13 220);
+  --primary-foreground: oklch(0.98 0.005 250);
+  --secondary: oklch(0.26 0.013 260);
+  --muted-foreground: oklch(0.62 0.015 260);
+  --accent-soft: oklch(0.69 0.13 220 / 13%);
+  --destructive: oklch(0.66 0.2 25);
+  --success: oklch(0.72 0.15 160);
+  --warning: oklch(0.8 0.15 80);
+  --note: oklch(0.72 0.14 305);
+  --border: oklch(1 0 0 / 7%);
+  --input: oklch(1 0 0 / 9%);
+  --ring: oklch(0.69 0.13 220);
+  --sidebar: oklch(0.155 0.012 260);
+  --sidebar-foreground: oklch(0.85 0.01 260);
+  --sidebar-accent: oklch(0.23 0.014 260);
+  --sidebar-border: oklch(1 0 0 / 7%);
+  --shadow-panel: 0 1px 0 oklch(1 0 0 / 4%) inset, 0 8px 24px -12px oklch(0 0 0 / 60%);
+  --shadow-glow: 0 0 0 1px oklch(0.69 0.13 220 / 35%), 0 6px 20px -6px oklch(0.69 0.13 220 / 35%);
+}
+
+:root.light {
+  color-scheme: light;
+  --background: oklch(0.965 0.006 250);
+  --foreground: oklch(0.23 0.018 255);
+  --surface: oklch(0.99 0.003 250);
+  --surface-raised: oklch(0.945 0.008 250);
+  --primary: oklch(0.58 0.16 235);
+  --primary-foreground: oklch(0.99 0.002 250);
+  --secondary: oklch(0.92 0.012 250);
+  --muted-foreground: oklch(0.5 0.025 255);
+  --accent-soft: oklch(0.58 0.16 235 / 10%);
+  --destructive: oklch(0.55 0.21 25);
+  --success: oklch(0.55 0.15 155);
+  --warning: oklch(0.65 0.15 75);
+  --note: oklch(0.56 0.15 305);
+  --border: oklch(0.4 0.02 255 / 14%);
+  --input: oklch(0.4 0.02 255 / 18%);
+  --ring: oklch(0.58 0.16 235);
+  --sidebar: oklch(0.94 0.012 250);
+  --sidebar-foreground: oklch(0.28 0.02 255);
+  --sidebar-accent: oklch(0.89 0.02 245);
+  --sidebar-border: oklch(0.4 0.02 255 / 13%);
+  --shadow-panel: 0 1px 0 oklch(1 0 0 / 75%) inset, 0 8px 24px -14px oklch(0.25 0.03 255 / 22%);
+  --shadow-glow: 0 0 0 1px oklch(0.58 0.16 235 / 22%), 0 6px 18px -7px oklch(0.58 0.16 235 / 28%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    user-select: none; /* it's an app, not a web page; inputs re-enable below */
+  }
+  input,
+  textarea {
+    user-select: text;
+  }
+  button {
+    cursor: default;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.5 0 0 / 25%);
+    border-radius: 999px;
+  }
+}
